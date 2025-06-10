@@ -1,34 +1,26 @@
 import React from "react";
+import ProductCard from "./ProductCard";
 
 const CartItem = ({
   id,
   name,
+  image,
   count,
   handleIncrement,
   handleDecrement,
+  handleRemove,
 }) => {
   return (
-    <div className="flex gap-5 items-center">
-      <span>{name}</span>
-      <span>{count}</span>
-      <div className="flex gap-2">
-        <button
-          className="btn btn-accent"
-          onClick={() => {
-            handleIncrement(id);
-          }}
-        >
-          +
-        </button>
-        <button
-          className="btn btn-error"
-          onClick={() => {
-            handleDecrement(id);
-          }}
-        >
-          -
-        </button>
-      </div>
+    <div>
+      <ProductCard
+        title={name}
+        image={image}
+        count={count}
+        id={id}
+        handleIncrement={handleIncrement}
+        handleDecrement={handleDecrement}
+        handleRemove={handleRemove}
+      />
     </div>
   );
 };
