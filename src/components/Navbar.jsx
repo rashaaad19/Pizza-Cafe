@@ -7,7 +7,7 @@ const Navbar = ({ products }) => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Pizza Café</a>
+        <NavLink className="btn btn-ghost text-xl" to={"/"}>Pizza Café</NavLink>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 items-center">
@@ -23,7 +23,7 @@ const Navbar = ({ products }) => {
           </li>
           <li>
             <div className="relative">
-              <NavLink to={"/"}>
+              <NavLink to={"/cart"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
