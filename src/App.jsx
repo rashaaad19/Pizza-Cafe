@@ -162,6 +162,9 @@ function App() {
     },
   ]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState(0);
+
   const categories = [
     { id: 0, name: "all" },
     { id: 1, name: "pizza" },
@@ -224,7 +227,7 @@ function App() {
     });
     setProducts(updatedProducts);
 
-    if(filteredProducts.length > 0){
+    if (filteredProducts.length > 0) {
       const updatedFilteredProducts = filteredProducts.map((product) => {
         return product.count === 0
           ? product.id === id
@@ -235,15 +238,21 @@ function App() {
           : product;
       });
       setFilteredProducts(updatedFilteredProducts);
-
     }
   };
 
   const handleCategorySelect = (id) => {
+    setSelectedCategory(id);
     id === 0
       ? setFilteredProducts([])
       : setFilteredProducts(products.filter((product) => product.cid === id));
+    setCurrentPage(1);
   };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <>
       <Navbar products={products} />
@@ -257,7 +266,10 @@ function App() {
               }
               handleToggleCart={handleToggleCart}
               handleCategorySelect={handleCategorySelect}
+              selectedCategory={selectedCategory}
               categories={categories}
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
             />
           }
         ></Route>
