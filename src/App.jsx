@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import Cart from "./components/Cart";
+import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router";
+import About from "./pages/About";
+import People from "./pages/People";
+import Company from "./pages/Company";
 
 function App() {
   const [products, setProducts] = useState([
@@ -75,13 +79,24 @@ function App() {
   return (
     <>
       <Navbar products={products} />
-      <Cart
-        products={products}
-        handleIncrement={handleIncrement}
-        handleDecrement={handleDecrement}
-        handleReset={handleReset}
-        handleRemove={handleRemove}
-      />
+      <Routes>
+        <Route
+          path=""
+          element={
+            <Cart
+              products={products}
+              handleIncrement={handleIncrement}
+              handleDecrement={handleDecrement}
+              handleReset={handleReset}
+              handleRemove={handleRemove}
+            />
+          }
+        />
+        <Route path="/about" element={<About />}>
+          <Route path="people" element={<People />} />
+          <Route path="company" element={<Company />} />
+        </Route>
+      </Routes>
     </>
   );
 }
