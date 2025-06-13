@@ -11,13 +11,20 @@ const Home = ({
   handlePageChange,
   currentPage,
 }) => {
-  const numOfItems = products.length;
-  const pageSize = 5;
+  
+  let filteredProducts =
+    selectedCategory === 0
+      ? products
+      : products.filter((product) => product.cid === selectedCategory);
+
+  const numOfItems = filteredProducts.length;
+  const pageSize = 6;
   const numOfPages = Math.ceil(numOfItems / pageSize);
   let start = (currentPage - 1) * pageSize;
   let end = start + pageSize;
   let arrPages = arrayFromNum(numOfPages);
-  let paginatedProducts = products.slice(start, end);
+  let paginatedProducts = filteredProducts.slice(start, end);
+
   return (
     <>
       <div className="grid grid-cols-6 py-8">
@@ -30,7 +37,7 @@ const Home = ({
                 "p-5 capitalize border-b-2 cursor-pointer " +
                 (selectedCategory === item.id ? "bg-gray-300" : "")
               }
-                          >
+            >
               {item.name}
             </h2>
           ))}

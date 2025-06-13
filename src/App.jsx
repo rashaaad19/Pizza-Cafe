@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 
 function App() {
   //-------------------------------- States ---------------------------
-  const [products, setProducts] = useState([
+  const [filteredProducts, setFilteredProducts] = useState([
     // 🍕 Pizza
     {
       id: 1,
@@ -161,7 +161,7 @@ function App() {
       cid: 3,
     },
   ]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  // const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(0);
 
@@ -174,7 +174,7 @@ function App() {
 
   //-------------------------------- Handlers ---------------------------
   const handleIncrement = (id) => {
-    const newProducts = [...products];
+    const newProducts = [...filteredProducts];
     const productIndex = newProducts.findIndex((product) => product.id === id);
     let selectedProduct = newProducts[productIndex];
 
@@ -187,11 +187,11 @@ function App() {
       ...selectedProduct,
       count: selectedProduct.count++,
     };
-    setProducts([...newProducts]);
+    setFilteredProducts([...newProducts]);
   };
 
   const handleDecrement = (id) => {
-    const newProducts = [...products];
+    const newProducts = [...filteredProducts];
     const productIndex = newProducts.findIndex((product) => product.id === id);
     let selectedProduct = newProducts[productIndex];
     if (selectedProduct.count === 0) {
@@ -201,7 +201,7 @@ function App() {
         ...selectedProduct,
         count: selectedProduct.count--,
       };
-      setProducts([...newProducts]);
+      setFilteredProducts([...newProducts]);
     }
   };
   const handleReset = () => {
@@ -209,14 +209,14 @@ function App() {
   };
 
   const handleRemove = (id) => {
-    const updatedProducts = products.map((product) =>
+    const updatedProducts = filteredProducts.map((product) =>
       product.id === id ? { ...product, count: 0 } : product
     );
-    setProducts(updatedProducts);
+    setFilteredProducts(updatedProducts);
   };
 
   const handleToggleCart = (id) => {
-    const updatedProducts = products.map((product) => {
+    const updatedProducts = filteredProducts.map((product) => {
       return product.count === 0
         ? product.id === id
           ? { ...product, count: 1 }
@@ -225,27 +225,24 @@ function App() {
         ? { ...product, count: 0 }
         : product;
     });
-    setProducts(updatedProducts);
+    setFilteredProducts(updatedProducts);
 
-    if (filteredProducts.length > 0) {
-      const updatedFilteredProducts = filteredProducts.map((product) => {
-        return product.count === 0
-          ? product.id === id
-            ? { ...product, count: 1 }
-            : product
-          : product.id === id
-          ? { ...product, count: 0 }
-          : product;
-      });
-      setFilteredProducts(updatedFilteredProducts);
-    }
+    // if (filteredProducts.length > 0) {
+    //   const updatedFilteredProducts = filteredProducts.map((product) => {
+    //     return product.count === 0
+    //       ? product.id === id
+    //         ? { ...product, count: 1 }
+    //         : product
+    //       : product.id === id
+    //       ? { ...product, count: 0 }
+    //       : product;
+    //   });
+    //   setFilteredProducts(updatedFilteredProducts);
+    // }
   };
 
   const handleCategorySelect = (id) => {
     setSelectedCategory(id);
-    id === 0
-      ? setFilteredProducts([])
-      : setFilteredProducts(products.filter((product) => product.cid === id));
     setCurrentPage(1);
   };
 
@@ -255,15 +252,13 @@ function App() {
 
   return (
     <>
-      <Navbar products={products} />
+      <Navbar products={filteredProducts} />
       <Routes>
         <Route
           path="/"
           element={
             <Home
-              products={
-                filteredProducts.length > 0 ? filteredProducts : products
-              }
+              products={filteredProducts}
               handleToggleCart={handleToggleCart}
               handleCategorySelect={handleCategorySelect}
               selectedCategory={selectedCategory}
@@ -277,7 +272,7 @@ function App() {
           path="/cart"
           element={
             <Cart
-              products={products}
+              products={filteredProducts}
               handleIncrement={handleIncrement}
               handleDecrement={handleDecrement}
               handleReset={handleReset}
