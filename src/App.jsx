@@ -161,10 +161,9 @@ function App() {
       cid: 3,
     },
   ]);
-  // const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(0);
-
+  const [searchQuery, setSearchQuery] = useState("");
   const categories = [
     { id: 0, name: "all" },
     { id: 1, name: "pizza" },
@@ -250,6 +249,11 @@ function App() {
     setCurrentPage(page);
   };
 
+  const handleSearch = (event) => {
+    setCurrentPage(1);
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <>
       <Navbar products={filteredProducts} />
@@ -265,6 +269,8 @@ function App() {
               categories={categories}
               currentPage={currentPage}
               handlePageChange={handlePageChange}
+              handleSearch={handleSearch}
+              searchQuery={searchQuery}
             />
           }
         ></Route>
