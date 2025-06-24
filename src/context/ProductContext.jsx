@@ -2,8 +2,6 @@ import { createContext, useState } from "react";
 export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-
-
   //-----------------States-----------------
   const [filteredProducts, setFilteredProducts] = useState([
     // 🍕 Pizza
@@ -61,7 +59,7 @@ const ProductProvider = ({ children }) => {
       id: 7,
       name: "Caesar Salad",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 6.99,
       cid: 2,
     },
@@ -69,7 +67,7 @@ const ProductProvider = ({ children }) => {
       id: 8,
       name: "Greek Salad",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1606735584785-1848fdcaea57?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 7.49,
       cid: 2,
     },
@@ -77,7 +75,7 @@ const ProductProvider = ({ children }) => {
       id: 9,
       name: "Cobb Salad",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1605291535557-4fc6bb3b4d00?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 8.29,
       cid: 2,
     },
@@ -85,7 +83,7 @@ const ProductProvider = ({ children }) => {
       id: 10,
       name: "Garden Salad",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1605291535126-2d71fea483c1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 5.99,
       cid: 2,
     },
@@ -93,7 +91,7 @@ const ProductProvider = ({ children }) => {
       id: 11,
       name: "Quinoa Salad",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://plus.unsplash.com/premium_photo-1705207702013-368450377046?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 7.99,
       cid: 2,
     },
@@ -101,17 +99,16 @@ const ProductProvider = ({ children }) => {
       id: 12,
       name: "Pasta Salad",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://plus.unsplash.com/premium_photo-1705420671923-cc9270c18b34?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 6.49,
       cid: 2,
     },
-
     // 🥤 Drinks
     {
       id: 13,
       name: "Coca-Cola",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://plus.unsplash.com/premium_photo-1725075086083-89117890371d?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 2.49,
       cid: 3,
     },
@@ -119,7 +116,7 @@ const ProductProvider = ({ children }) => {
       id: 14,
       name: "Orange Juice",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1641659735894-45046caad624?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 3.29,
       cid: 3,
     },
@@ -127,7 +124,7 @@ const ProductProvider = ({ children }) => {
       id: 15,
       name: "Lemonade",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1656936632096-59fcacae533f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 2.99,
       cid: 3,
     },
@@ -135,7 +132,7 @@ const ProductProvider = ({ children }) => {
       id: 16,
       name: "Iced Tea",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1499961024600-ad094db305cc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 2.89,
       cid: 3,
     },
@@ -143,7 +140,7 @@ const ProductProvider = ({ children }) => {
       id: 17,
       name: "Mineral Water",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://images.unsplash.com/photo-1554140426-5e830b73a5e8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 1.99,
       cid: 3,
     },
@@ -151,7 +148,7 @@ const ProductProvider = ({ children }) => {
       id: 18,
       name: "Coffee",
       count: 0,
-      img: "public/images/placeholder.jpg",
+      img: "https://plus.unsplash.com/premium_photo-1670015230537-5c6253727a36?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: 2.59,
       cid: 3,
     },
@@ -236,7 +233,6 @@ const ProductProvider = ({ children }) => {
     setSearchQuery(event.target.value);
   };
 
-  
   return (
     <ProductContext
       value={{
