@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { arrayFromNum } from "../utils/array";
+import { ProductContext } from "../context/ProductContext";
 
-const Home = ({
-  products,
-  handleToggleCart,
-  categories,
-  handleCategorySelect,
-  selectedCategory,
-  handlePageChange,
-  currentPage,
-  handleSearch,
-  searchQuery,
-}) => {
+const Home = ({}) => {
+  //-----------------Context-----------------
+  const {
+    filteredProducts: products,
+    categories,
+    selectedCategory,
+    currentPage,
+    searchQuery,
+    handleToggleCart,
+    handleCategorySelect,
+    handlePageChange,
+    handleSearch,
+  } = useContext(ProductContext);
+
+
+  //-----------------States-----------------
   let filteredProducts =
     selectedCategory === 0
       ? products
@@ -21,7 +27,6 @@ const Home = ({
   filteredProducts = filteredProducts.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
   const numOfItems = filteredProducts.length;
   const pageSize = 6;
   const numOfPages = Math.ceil(numOfItems / pageSize);
@@ -30,6 +35,7 @@ const Home = ({
   let arrPages = arrayFromNum(numOfPages);
   filteredProducts = filteredProducts.slice(start, end);
 
+  
   return (
     <>
       <div className="grid grid-cols-6 py-8 px-4">

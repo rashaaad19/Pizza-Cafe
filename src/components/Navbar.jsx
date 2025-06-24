@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router";
+import { ProductContext } from "../context/ProductContext";
 
-const Navbar = ({ products }) => {
+const Navbar = () => {
+  const { filteredProducts: products } = useContext(ProductContext);
   const itemsInCart = products.filter((product) => product.count > 0);
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
-        <NavLink className="btn btn-ghost text-xl" to={"/"}>Pizza Café</NavLink>
+        <NavLink className="btn btn-ghost text-xl" to={"/"}>
+          Pizza Café
+        </NavLink>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 items-center">
           <li>
             <NavLink
               to={"/about"}
-              className={({ isActive }) =>
-                isActive ? "font-bold" : ""
-              }
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
             >
               About
             </NavLink>

@@ -1,13 +1,20 @@
+import { useContext } from "react";
 import CartItem from "../components/CartItem";
+import { ProductContext } from "../context/ProductContext";
 
-const Cart = ({
-  products,
-  handleIncrement,
-  handleDecrement,
-  handleReset,
-  handleRemove,
-}) => {
- const inCartProducts = products.filter(product=>product.count>0);
+const Cart = () => {
+  
+  const {
+    filteredProducts: products,
+    handleIncrement,
+    handleDecrement,
+    handleReset,
+    handleRemove,
+  } = useContext(ProductContext);
+
+
+
+  const inCartProducts = products.filter((product) => product.count > 0);
 
   return (
     <>
