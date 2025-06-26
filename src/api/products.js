@@ -6,3 +6,49 @@ export const fetchProducts=async()=>{
     const data = await response.json();
     return data;
 }
+
+export const fetchOneProduct=async(id)=>{
+  const response = await fetch(`http://localhost:3000/products/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch product');
+  }
+  const data = await response.json();
+  console.log(data)
+
+  return data;
+}
+
+
+export const addProduct = async (product) => {
+  const response = await fetch('http://localhost:3000/products', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(product),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to add product');
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+export const editProduct=async(id, product) => {
+  const response = await fetch(`http://localhost:3000/products/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(product),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to edit product');
+  }
+
+  const data = await response.json();
+  return data;
+}

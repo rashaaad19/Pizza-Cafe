@@ -1,13 +1,11 @@
-import { useParams } from "react-router"
+import EditItemForm from "../components/EditItemForm";
 
 const EditProduct = () => {
-  const {id} =   useParams();
-    console.log(id);
   return (
     <>
-    <h1>Hello world</h1>
+      <EditItemForm />
     </>
-)
-}
+  );
+};
 
-export default EditProduct
+export default EditProduct;

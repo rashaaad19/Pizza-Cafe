@@ -24,6 +24,14 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink
+              to={"/dashboard"}
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
             <div className="relative">
               <NavLink to={"/cart"}>
                 <svg

@@ -23,6 +23,7 @@ const Home = ({}) => {
     selectedCategory === 0
       ? products
       : products.filter((product) => product.cid === selectedCategory);
+      console.log(filteredProducts)
 
   filteredProducts = filteredProducts.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
