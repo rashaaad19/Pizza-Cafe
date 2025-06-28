@@ -1,20 +1,12 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Neapolitan",
-      "count": 0,
-      "img": "public/images/neapolitan-pizza.jpg",
+      "name": "Neapolitan Pizza",
       "price": 10.99,
-      "cid": 1
-    },
-    {
-      "name": "Ranch",
-      "price": 17.29,
-      "img": "public/images/ranch-pizza.jpg",
+      "img": "public/images/neapolitan-pizza.jpg",
       "cid": 1,
       "count": 0,
-      "id": "3"
+      "id": "1"
     },
     {
       "id": "4",

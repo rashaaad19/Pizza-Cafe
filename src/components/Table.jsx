@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router";
+import { useContext } from "react";
 
 const Table = () => {
   const { filteredProducts: products } = useContext(ProductContext);
 
-  const handleDeleteProduct = (id) => {
-    console.log(`Delete product with ID: ${id}`);
-  };
+  const handleDeleteProduct=(product)=>{
+    deleteProduct(product); // Use the mutate function returned by the hook
+  }
 
   return (
     <div className="overflow-x-auto ">
@@ -49,7 +49,7 @@ const Table = () => {
                   </Link>
                   <button
                     className="btn btn-square bg-transparent border-transparent"
-                    onClick={() => handleDeleteProduct(product.id)}
+                    onClick={() => handleDeleteProduct(product)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -3,7 +3,7 @@ export const addItemHandler = async (values, { setSubmitting, resetForm, mutateA
     try {
         await mutateAsync(values);
         resetForm();
-        navigate("/"); 
+        navigate("/dashboard"); 
 
     } catch (error) {
         console.log(error, 'error in addItemHandler');
@@ -19,7 +19,7 @@ export const editItemHandler = async (values, { setSubmitting, resetForm, mutate
     try {
         await mutateAsync(values);
         resetForm();
-        navigate("/"); 
+        navigate("/dashboard"); 
     } catch (error) {
         console.log(error, 'error in editItemHandler');
     }

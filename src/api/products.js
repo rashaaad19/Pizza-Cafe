@@ -52,3 +52,10 @@ export const editProduct=async(id, product) => {
   const data = await response.json();
   return data;
 }
+
+export const deleteProduct=async(product)=>{
+await fetch(`http://localhost:3000/products/${product.id}?_delay=3000`, {
+    method: 'DELETE',
+  });
+  return product.id;
+}
