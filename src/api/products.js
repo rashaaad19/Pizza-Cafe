@@ -1,5 +1,5 @@
 export const fetchProducts=async()=>{
-  const response =   await fetch('http://localhost:3000/products');
+  const response =   await fetch('https://shrouded-determined-dollar.glitch.me/products');
     if (!response.ok) {
         throw new Error('Failed to fetch products');
     }
@@ -8,7 +8,7 @@ export const fetchProducts=async()=>{
 }
 
 export const fetchOneProduct=async(id)=>{
-  const response = await fetch(`http://localhost:3000/products/${id}`);
+  const response = await fetch(`https://shrouded-determined-dollar.glitch.me/products/${id}`);
   if (!response.ok) {
     throw new Error('Failed to fetch product');
   }
@@ -20,7 +20,7 @@ export const fetchOneProduct=async(id)=>{
 
 
 export const addProduct = async (product) => {
-  const response = await fetch('http://localhost:3000/products', {
+  const response = await fetch('https://shrouded-determined-dollar.glitch.me/products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export const addProduct = async (product) => {
 }
 
 export const editProduct=async(id, product) => {
-  const response = await fetch(`http://localhost:3000/products/${id}`, {
+  const response = await fetch(`https://shrouded-determined-dollar.glitch.me/products/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const editProduct=async(id, product) => {
 }
 
 export const deleteProduct=async(product)=>{
-await fetch(`http://localhost:3000/products/${product.id}`, {
+await fetch(`https://shrouded-determined-dollar.glitch.me/products/${product.id}`, {
     method: 'DELETE',
   });
   return product.id;
