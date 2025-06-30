@@ -9,13 +9,11 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
-import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
         <Navbar />
-        <ToastContainer/>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/cart" element={<Cart />} />

@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Seafood",
-      "price": 12.99,
+      "price": 14.99,
       "img": "public/images/seafood-pizza.jpg",
       "cid": 1,
       "count": 0,
