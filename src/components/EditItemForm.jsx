@@ -10,10 +10,10 @@ const EditItemForm = () => {
   //----------------------Sates-------------------
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data, isLoading } = useFetchOneProduct(id);
+  const { data, isLoading, isFetching } = useFetchOneProduct(id);
   const { mutateAsync } = useEditProduct(id);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <div className="flex justify-center items-center h-64">
         <span className="loading loading-spinner loading-lg text-primary"></span>

@@ -1,14 +1,11 @@
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router";
 import { useContext } from "react";
-import { deleteProduct } from "../api/products";
+import { useDeleteProduct } from "../hooks/useDeleteProduct";
 
 const Table = () => {
   const { filteredProducts: products } = useContext(ProductContext);
-
-  const handleDeleteProduct=(product)=>{
-    deleteProduct(product); // Use the mutate function returned by the hook
-  }
+  const { mutate:deleteItemHandler, isLoading } = useDeleteProduct();
 
   return (
     <div className="overflow-x-auto ">
@@ -48,10 +45,7 @@ const Table = () => {
                       />
                     </svg>
                   </Link>
-                  <button
-                    className="btn btn-square bg-transparent border-transparent"
-                    onClick={() => handleDeleteProduct(product)}
-                  >
+                  <button className="btn btn-square bg-transparent border-transparent" onClick={()=>deleteItemHandler(product)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

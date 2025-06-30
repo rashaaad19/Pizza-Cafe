@@ -1,30 +1,24 @@
 
-export const addItemHandler = async (values, { setSubmitting, resetForm, mutateAsync, navigate }) => {
+export const addItemHandler = async (values, { setSubmitting, mutateAsync }) => {
     try {
         await mutateAsync(values);
-        resetForm();
-        navigate("/dashboard"); 
 
     } catch (error) {
         console.log(error, 'error in addItemHandler');
     }
     finally {
         setSubmitting(false);
-        // resetForm();
     }
 }
 
-export const editItemHandler = async (values, { setSubmitting, resetForm, mutateAsync, navigate }) => {
+export const editItemHandler = async (values, { setSubmitting, mutateAsync }) => {
 
     try {
         await mutateAsync(values);
-        resetForm();
-        navigate("/dashboard"); 
     } catch (error) {
         console.log(error, 'error in editItemHandler');
     }
     finally {
         setSubmitting(false);
-        resetForm();
     }
 }

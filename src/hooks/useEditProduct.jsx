@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { editProduct } from "../api/products";
 import { useNavigate } from "react-router";
+import { toast } from 'react-toastify';
 
 export const useEditProduct = (id) => {
   const queryClient = useQueryClient();
@@ -9,11 +10,11 @@ export const useEditProduct = (id) => {
 
   return useMutation({
     mutationFn: (product) => editProduct(id, product),
-    onSuccess: () => {
-      console.log("Product edited successfully");
+    onSuccess: ({product}) => {
+      console.log("Product edited successfully",product);
       queryClient.invalidateQueries({ queryKey: ["products"] });
       navigate('/dashboard');
-      // toast.success('Product editedd')
+      toast.warn('Product Edited')
 
     },
     onError: (error) => {

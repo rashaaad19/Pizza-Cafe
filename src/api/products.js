@@ -57,5 +57,6 @@ export const deleteProduct=async(product)=>{
 await fetch(`https://shrouded-determined-dollar.glitch.me/products/${product.id}`, {
     method: 'DELETE',
   });
+  console.log(product.id)
   return product.id;
 }
