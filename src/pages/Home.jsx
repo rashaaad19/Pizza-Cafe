@@ -17,13 +17,12 @@ const Home = ({}) => {
     handleSearch,
   } = useContext(ProductContext);
 
-
   //-----------------States-----------------
   let filteredProducts =
     selectedCategory === 0
       ? products
       : products.filter((product) => product.cid === selectedCategory);
-      console.log(filteredProducts)
+  console.log(filteredProducts);
 
   filteredProducts = filteredProducts.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -36,11 +35,10 @@ const Home = ({}) => {
   let arrPages = arrayFromNum(numOfPages);
   filteredProducts = filteredProducts.slice(start, end);
 
-  
   return (
     <>
       <div className="grid grid-cols-6 py-8 px-4">
-        <div>
+        <div className="sm: col-span-full md:col-span-1">
           <label className="input mb-8">
             <svg
               className="h-[1em] opacity-50"
@@ -66,21 +64,26 @@ const Home = ({}) => {
             />
           </label>
 
-          {categories.map((item, index) => (
-            <h2
-              key={item.id}
-              onClick={() => handleCategorySelect(item.id)}
-              className={
-                `p-5 capitalize border-b-2 cursor-pointer` +
-                (index === 0 ? " border-t-2" : "") +
-                (selectedCategory === item.id ? " bg-gray-300" : "")
-              }
-            >
-              {item.name}
-            </h2>
-          ))}
+          <div className=" flex justify-around md:flex-col ">
+            {categories.map((item, index) => (
+              <h2
+                key={item.id}
+                onClick={() => handleCategorySelect(item.id)}
+                className={`p-5 capitalize border-b-2 cursor-pointer transition-colors duration-200 font-medium 
+      ${index === 0 ? "border-t-2" : ""}
+      ${
+        selectedCategory === item.id
+          ? "bg-orange-200 text-orange-900 border-orange-300"
+          : "hover:bg-orange-50 hover:text-orange-700 text-gray-700 border-gray-200"
+      }`}
+              >
+                {item.name}
+              </h2>
+            ))}
+          </div>
         </div>
-        <div className="mx-auto grid col-span-5  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4">
+
+        <div className="mx-auto grid col-start-1 col-span-6 md:col-start-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4">
           {filteredProducts.map((product) => (
             <ProductCard
               title={product.name}
@@ -100,7 +103,7 @@ const Home = ({}) => {
           <button
             key={page}
             className={`btn btn-square ${
-              page === currentPage ? "bg-amber-100" : ""
+              page === currentPage ? "bg-orange-200" : ""
             }`}
             onClick={() => handlePageChange(page)}
           >

@@ -54,7 +54,7 @@ export const editProduct=async(id, product) => {
 }
 
 export const deleteProduct=async(product)=>{
-await fetch(`http://localhost:3000/products/${product.id}?_delay=3000`, {
+await fetch(`http://localhost:3000/products/${product.id}`, {
     method: 'DELETE',
   });
   return product.id;

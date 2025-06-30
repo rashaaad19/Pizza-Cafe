@@ -14,6 +14,8 @@ export const useEditProduct = (id) => {
       console.log("Product edited successfully");
       queryClient.invalidateQueries({ queryKey: ["products"] });
       navigate('/dashboard');
+      // toast.success('Product editedd')
+
     },
     onError: (error) => {
       console.error("Error editing product:", error);

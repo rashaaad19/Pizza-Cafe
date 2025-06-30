@@ -1,6 +1,7 @@
 import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router";
 import { useContext } from "react";
+import { deleteProduct } from "../api/products";
 
 const Table = () => {
   const { filteredProducts: products } = useContext(ProductContext);

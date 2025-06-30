@@ -10,7 +10,7 @@ export const addItemHandler = async (values, { setSubmitting, resetForm, mutateA
     }
     finally {
         setSubmitting(false);
-        resetForm();
+        // resetForm();
     }
 }
 

@@ -28,10 +28,10 @@ const ProductCard = ({
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill={count>0?'black':'none'}
+                fill={count>0?'oklch(75% 0.183 55.934)':'none'}
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke="currentColor"
+                stroke={count>0?'oklch(70.5% 0.213 47.604)':'black'}
                 className="size-6"
               >
                 <path
