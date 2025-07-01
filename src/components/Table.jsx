@@ -1,30 +1,30 @@
-import { ProductContext } from "../context/ProductContext";
 import { Link } from "react-router";
 import { useContext } from "react";
+import { ProductContext } from "../context/ProductContext";
 import { useDeleteProduct } from "../hooks/useDeleteProduct";
 
 const Table = () => {
   const { filteredProducts: products } = useContext(ProductContext);
-  const { mutate:deleteItemHandler, isLoading } = useDeleteProduct();
+  const { mutate: deleteItemHandler } = useDeleteProduct();
 
   return (
-    <div className="overflow-x-auto ">
-      <table className="table md:table-lg table-md">
+    <div className="overflow-x-auto">
+      <table className="table table-fixed md:table-lg table-md">
         <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Actions</th>
+          <tr className="h-16">
+            <th className="w-12"></th> 
+            <th className="w-[128px]">Name</th>
+            <th className="w-[96px]">Price</th>
+            <th className="w-[120px]">Actions</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product, index) => (
-            <tr key={product.id}>
-              <th>{index + 1}</th>
-              <td>{product.name}</td>
-              <td>{product.price}$</td>
-              <td>
+            <tr key={product.id} className="h-16">
+              <th className="w-12">{index + 1}</th>
+              <td className="w-4" >{product.name}</td>
+              <td >{product.price}$</td>
+              <td >
                 <div className="flex gap-2">
                   <Link
                     className="btn btn-square bg-transparent border-transparent"
@@ -45,7 +45,10 @@ const Table = () => {
                       />
                     </svg>
                   </Link>
-                  <button className="btn btn-square bg-transparent border-transparent" onClick={()=>deleteItemHandler(product)}>
+                  <button
+                    className="btn btn-square bg-transparent border-transparent"
+                    onClick={() => deleteItemHandler(product)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
