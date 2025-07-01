@@ -18,18 +18,7 @@ const Navbar = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 items-center transition-none ">
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `text-base text-gray-700 hover:bg-transparent hover:text-current active:!bg-transparent active:!text-current ${
-                  isActive && "font-bold"
-                }`
-              }
-            >
-              About
-            </NavLink>
-          </li>
+         
           <li>
             <NavLink
               to={"/dashboard"}
