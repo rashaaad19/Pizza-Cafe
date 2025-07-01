@@ -11,13 +11,17 @@ const ProductCard = ({
   handleToggleCart,
 }) => {
   return (
-    <div className="card bg-base-100 max-w-fit shadow-sm">
-      <figure>
-        <img src={image} alt={title} className="h-full w-full object-cover" />
-      </figure>
+    <div className="card bg-base-100 w-full shadow-sm">
+<figure className="h-[268px]">
+  <img
+    src={image}
+    alt={title}
+    loading="lazy"
+  />
+</figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <p className="text-xl font-bold">
+        <h2 className="card-title text-orange-600 text-lg">{title}</h2>
+        <p className="text-base font-bold text-neutral-500">
           {cardType === "menu" ? `${price}$` : count}
         </p>
         {cardType === "menu" ? (

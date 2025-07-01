@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { arrayFromNum } from "../utils/array";
 import { ProductContext } from "../context/ProductContext";
+import SkeltonCard from "../components/SkeltonCard";
 
 const Home = ({}) => {
   //-----------------Context-----------------
@@ -15,6 +16,7 @@ const Home = ({}) => {
     handleCategorySelect,
     handlePageChange,
     handleSearch,
+    isLoading,
   } = useContext(ProductContext);
 
   //-----------------States-----------------
@@ -35,9 +37,10 @@ const Home = ({}) => {
   let arrPages = arrayFromNum(numOfPages);
   filteredProducts = filteredProducts.slice(start, end);
 
+  console.log(isLoading);
   return (
     <>
-      <div className="grid grid-cols-6 py-8 px-4">
+      <div className="grid grid-cols-6 py-8 sm:px-4">
         <div className="sm: col-span-full md:col-span-1">
           <label className="input mb-8">
             <svg
@@ -69,8 +72,8 @@ const Home = ({}) => {
               <h2
                 key={item.id}
                 onClick={() => handleCategorySelect(item.id)}
-                className={`p-5 capitalize border-b-2 cursor-pointer transition-colors duration-200 font-medium 
-      ${index === 0 ? "border-t-2" : ""}
+                className={`mb-5 sm:mb-0 p-5 capitalize md:border-b-2 cursor-pointer transition-colors duration-200 font-medium 
+    
       ${
         selectedCategory === item.id
           ? "bg-orange-200 text-orange-900 border-orange-300"
@@ -83,19 +86,23 @@ const Home = ({}) => {
           </div>
         </div>
 
-        <div className="mx-auto grid col-start-1 col-span-6 md:col-start-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              title={product.name}
-              id={product.id}
-              price={product.price}
-              image={product.img}
-              key={product.id}
-              count={product.count}
-              handleToggleCart={handleToggleCart}
-              cardType="menu"
-            />
-          ))}
+        <div className=" border-solid grid col-start-1 col-span-6 md:col-start-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <SkeltonCard key={index} />
+              ))
+            : filteredProducts.map((product) => (
+                <ProductCard
+                  title={product.name}
+                  id={product.id}
+                  price={product.price}
+                  image={product.img}
+                  key={product.id}
+                  count={product.count}
+                  handleToggleCart={handleToggleCart}
+                  cardType="menu"
+                />
+              ))}
         </div>
       </div>
       <div className="flex justify-end mb-5 px-5 gap-2">

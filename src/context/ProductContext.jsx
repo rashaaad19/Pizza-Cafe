@@ -17,13 +17,11 @@ const ProductProvider = ({ children }) => {
     { id: 3, name: "drinks" },
   ];
 
-  
   useEffect(() => {
     if (data) {
-      setFilteredProducts(data)
+      setFilteredProducts(data);
     }
   }, [data]);
-
 
   //-------------------------------- Handlers ---------------------------
   const handleIncrement = (id) => {
@@ -103,6 +101,7 @@ const ProductProvider = ({ children }) => {
         selectedCategory,
         searchQuery,
         categories,
+        isLoading,
         handleIncrement,
         handleDecrement,
         handleReset,

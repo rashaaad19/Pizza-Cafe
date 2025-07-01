@@ -7,18 +7,25 @@ const Navbar = () => {
   const itemsInCart = products.filter((product) => product.count > 0);
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm shadow-orange-100">
       <div className="flex-1">
-        <NavLink className="btn btn-ghost text-xl" to={"/"}>
+        <NavLink
+          className="btn btn-ghost text-xl text-orange-600 hover:bg-transparent border-transparent shadow-none animate-none active:!translate-none"
+          to={"/"}
+        >
           Pizza Café
         </NavLink>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 items-center">
+        <ul className="menu menu-horizontal px-1 items-center transition-none ">
           <li>
             <NavLink
-              to={"/about"}
-              className={({ isActive }) => (isActive ? "font-bold" : "")}
+              to="/about"
+              className={({ isActive }) =>
+                `text-base text-gray-700 hover:bg-transparent hover:text-current active:!bg-transparent active:!text-current ${
+                  isActive && "font-bold"
+                }`
+              }
             >
               About
             </NavLink>
@@ -26,8 +33,11 @@ const Navbar = () => {
           <li>
             <NavLink
               to={"/dashboard"}
-              className={({ isActive }) => (isActive ? "font-bold" : "")}
-            >
+              className={({ isActive }) =>
+                `text-base text-gray-700 hover:bg-transparent hover:text-current active:!bg-transparent active:!text-current ${
+                  isActive && "font-bold"
+                }`
+              }            >
               Dashboard
             </NavLink>
           </li>
