@@ -89,7 +89,7 @@ Before you begin, make sure you have the following installed:
 
 ---
 
-### Installation 📦
+### Installation
 
 Follow these steps to set up the project locally:
 
