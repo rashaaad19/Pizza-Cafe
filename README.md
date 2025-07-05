@@ -34,7 +34,7 @@
 
 ---
 
-## 🍽️ About The Project
+## About The Project 🍽️
 
 **Pizza Café** is a simple web application for a restaurant linked with a live database. It includes functionality for viewing, updating, adding, and deleting menu items, and the ability to track the cart in real time.
 
@@ -49,7 +49,7 @@
 
 ---
 
-### 🛠️ Built With
+###  Built With 🛠️
 
 This project is built using the following frameworks and tools:
 
@@ -69,11 +69,11 @@ This project is built using the following frameworks and tools:
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started ⚙️
 
 To get a local copy of this project up and running, follow these simple steps:
 
-### 📋 Prerequisites
+### Prerequisites 📋
 
 Before you begin, make sure you have the following installed:
 
@@ -89,7 +89,7 @@ Before you begin, make sure you have the following installed:
 
 ---
 
-### 📦 Installation
+### Installation 📦
 
 Follow these steps to set up the project locally:
 
@@ -116,7 +116,7 @@ Follow these steps to set up the project locally:
 
 ---
 
-## 📱 Usage
+## Usage 📱
 
 **Pizza Café** is a user-friendly web application to display and manage restaurant menu items.
 
@@ -138,7 +138,7 @@ Follow these steps to set up the project locally:
 
 ---
 
-## 📄 License
+## License 📄
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
